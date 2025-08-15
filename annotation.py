@@ -1,8 +1,6 @@
 import subprocess
 import os
-import time
-
-start_time = time.time()
+from tqdm import tqdm
 
 BAKTA_DB_PATH = 'bakta_db/db'
 PROTEUS_GENOMES_PATH = 'proteus_strains/'
@@ -20,7 +18,6 @@ def bakta_annotate(genome):
         '--tmp-dir', TMP_DIR,
         '--genus', 'Proteus',
         '--species', 'mirabilis',
-        '--threads', '20',
         '--skip-plot',
         genome_path
     ]
@@ -40,10 +37,6 @@ def bakta_annotate(genome):
 
 genomes = os.listdir(PROTEUS_GENOMES_PATH)
 
-for genome in genomes:
+for genome in tqdm(genomes):
     bakta_annotate(genome)
 
-end_time = time.time()
-
-with open("execution_time.txt", "w") as f:
-    f.write(f"Execution time: {end_time - start_time} seconds\n")
