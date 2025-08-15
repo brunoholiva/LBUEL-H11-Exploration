@@ -1,0 +1,6 @@
+bakta_db/
+__pycache__/
+tmp/
+proteus_strains/
+bakta_outputs/
+execution_time.txt
