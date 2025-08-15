@@ -2,10 +2,10 @@ import subprocess
 import os
 from tqdm import tqdm
 
-BAKTA_DB_PATH = 'bakta_db/db'
-PROTEUS_GENOMES_PATH = 'proteus_strains/'
-BAKTA_OUTPUTS_PATH = 'bakta_outputs/'
-TMP_DIR = 'tmp/'
+BAKTA_DB_PATH = 'annotation/bakta_db/db'
+PROTEUS_GENOMES_PATH = 'annotation/proteus_strains/'
+BAKTA_OUTPUTS_PATH = 'annotation/bakta_outputs/'
+TMP_DIR = 'annotation/tmp/'
 
 def bakta_annotate(genome):
     genome_path = os.path.join(PROTEUS_GENOMES_PATH, genome)
