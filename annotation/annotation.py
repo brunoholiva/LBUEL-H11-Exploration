@@ -24,13 +24,7 @@ def bakta_annotate(genome):
 
     try:
             subprocess.run(run_bakta, check=True)
-            
-            # Remove files that are not .tsv or .log
-            for file in os.listdir(output_folder):
-                file_path = os.path.join(output_folder, file)
-                if not (file.endswith('.tsv') or file.endswith('.log')):
-                    os.remove(file_path)
-        
+    
     except subprocess.CalledProcessError as e:
         print(f"Error running bakta for {genome}: {e}")
             
