@@ -1,6 +1,10 @@
-bakta_db/
+db/
 __pycache__/
 tmp/
-proteus_strains/
-bakta_outputs/
+data/
 execution_time.txt
+pan_genome/*
+.nextflow
+work/
+results/
+.nextflow.log*
