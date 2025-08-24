@@ -6,12 +6,13 @@
  *  - path genome: FASTA file
  *  - val  db: absolute path to Bakta DB (string, not copied)
  * Outputs:
- *  - path "<prefix>.bakta/<prefix>.gff": GFF for Panaroo
+ *  - path "<prefix>.bakta/<prefix>.gff3": GFF for Panaroo
  */
 
 process BAKTA_ANNOTATE {
   label 'bakta'
-  conda 'bakta_env.yml'
+  container 'oschwengers/bakta'
+  containerOptions '--entrypoint ""'
   tag { "Bakta on ${genome.baseName}" }
 
   input:

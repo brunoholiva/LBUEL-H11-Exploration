@@ -10,7 +10,7 @@
 
 process PANAROO_PAN_GENOME {
   label 'panaroo'
-  conda 'panaroo_env.yml'
+  container 'staphb/panaroo'
   tag { "Panaroo core-genome" }
 
   input:
@@ -22,7 +22,6 @@ process PANAROO_PAN_GENOME {
   script:
   """
   mkdir -p panaroo_out
-  panaroo -i *.gff3 --clean-mode strict -t ${task.cpus} -o panaroo_out --remove-invalid-genes
-  panaroo -i *.gff3 --clean-mode strict -t ${task.cpus} -o panaroo_out --remove-invalid-genes -a core
+  panaroo -i *.gff3 --clean-mode strict -t ${task.cpus} -o panaroo_out --remove-invalid-genes -a pan
   """
 }
