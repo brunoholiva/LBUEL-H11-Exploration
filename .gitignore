@@ -8,3 +8,4 @@ pan_genome/*
 work/
 results/
 .nextflow.log*
+nextflow.config
