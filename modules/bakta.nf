@@ -11,8 +11,10 @@
 
 process BAKTA_ANNOTATE {
   label 'bakta'
+  cpus 10
+  memory '16 GB'
   container 'oschwengers/bakta:v1.11.3'
-  containerOptions '--entrypoint ""'
+  publishDir "${params.outdir}/bakta", mode: 'copy'
   tag { "Bakta on ${genome.baseName}" }
 
   input:
@@ -25,7 +27,7 @@ process BAKTA_ANNOTATE {
   script:
   def prefix = genome.baseName
   """
-  bakta \\
+      bakta \\
     --db "${bakta_db_dir}" \\
     --output ${prefix}.bakta \\
     --prefix ${prefix} \\
